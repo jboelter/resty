@@ -38,6 +38,7 @@ type Request struct {
 	isMultiPart         bool
 	isFormData          bool
 	setContentLength    bool
+	contentLength       int64
 	isSaveResponse      bool
 	notParseResponse    bool
 	jsonEscapeHTML      bool

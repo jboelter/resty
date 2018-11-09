@@ -170,6 +170,10 @@ func createHTTPRequest(c *Client, r *Request) (err error) {
 		return
 	}
 
+	if r.contentLength > 0 {
+		r.RawRequest.ContentLength = r.contentLength
+	}
+
 	// Assign close connection option
 	r.RawRequest.Close = c.closeConnection
 

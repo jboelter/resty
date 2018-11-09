@@ -306,6 +306,17 @@ func (r *Request) SetContentLength(l bool) *Request {
 	return r
 }
 
+// SetContentLengthValue method sets RawRequest ContentLength value for the current request.
+// This is useful when you know the size of bytes a io.Reader will return, but don't have a
+// io.Seeker and you don't want to buffer the stream to get the length before sending the
+// request.
+//
+func (r *Request) SetContentLengthValue(l int64) *Request {
+	r.contentLength = l
+
+	return r
+}
+
 // SetBasicAuth method sets the basic authentication header in the current HTTP request.
 // For Header example:
 //		Authorization: Basic <base64-encoded-value>
